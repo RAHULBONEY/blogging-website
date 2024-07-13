@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Home Page</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="container">
+        <% if (locals.error) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= locals.error %>
+            </div>
+        <% } %>
+
+        <% if (user) { %>
+            <h1>Welcome, <%= user.fullName %>!</h1>
+            <p>Email: <%= user.email %></p>
+            
+        <% } else { %>
+            <h1>Welcome to Bloginn!</h1>
+            <p>Please sign in to access your account.</p>
+        <% } %>
+    </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>
